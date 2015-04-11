@@ -1,0 +1,27 @@
+nav.navbar {
+	background: #141414;
+}
+
+div.navbar-header > a.navbar-brand {
+	color: #84bd00;
+}
+
+div.navbar-header > a.navbar-brand:hover {
+	color: #fff;
+}
+
+form.navbar-form > button {
+	color: #84bd00;
+	border: 1px solid #84bd00;
+	font-weight: bold;
+}
+
+form.navbar-form > button:hover {
+	background: #84bd00;
+	color: #fff;
+}
+
+div.collapse > ul.nav > li > a {
+	color: #84bd00;
+}
+
