@@ -1,5 +1,12 @@
+body {
+	overflow-x: hidden;
+	padding-top: 60px;
+}
+
 nav.navbar {
 	background: #141414;
+	border: none;
+	padding: 20px;
 }
 
 div.navbar-header > a.navbar-brand {
@@ -10,13 +17,13 @@ div.navbar-header > a.navbar-brand:hover {
 	color: #fff;
 }
 
-form.navbar-form > button {
+form.navbar-form > a {
 	color: #84bd00;
 	border: 1px solid #84bd00;
-	font-weight: bold;
+	background: #2b2b2b;
 }
 
-form.navbar-form > button:hover {
+form.navbar-form > a:hover {
 	background: #84bd00;
 	color: #fff;
 }
@@ -24,4 +31,23 @@ form.navbar-form > button:hover {
 div.collapse > ul.nav > li > a {
 	color: #84bd00;
 }
+
+div.collapse > ul.nav > li > a:hover {
+	color: #fff;
+}
+
+div.jumbotron {
+	background: #2b2b2b;
+}
+
+div.jumbotron {
+	color: #84bd00;
+}
+
+div.main, div.left {
+	height: 100vh;
+}
+
+
+
 
