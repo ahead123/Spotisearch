@@ -42,12 +42,20 @@ div.jumbotron {
 
 div.jumbotron {
 	color: #84bd00;
+	padding: 70px;
 }
 
 div.main, div.left {
+	display: none;
 	height: 100vh;
 }
 
-
+i.fa.fa-search-plus, i.fa.fa-sort-alpha-asc, i.fa.fa-plus {
+	border: 1px solid #2b2b2b;
+	border-radius: 50%;
+	background: #2b2b2b;
+	padding: 50px;
+	color: #84bd00;
+}
 
 
