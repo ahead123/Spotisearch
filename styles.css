@@ -58,4 +58,14 @@ i.fa.fa-search-plus, i.fa.fa-sort-alpha-asc, i.fa.fa-plus {
 	color: #84bd00;
 }
 
+h4#resultHeader {
+	text-transform: capitalize;
+}
+
+.artistImage {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+
 
