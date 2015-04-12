@@ -44,7 +44,8 @@ var getResults = function() {
 				//album_url = json.albums.items[i].images[x].url;
 				album_name = json.albums.items[x].name;
 				album_id = json.albums.items[x].id;
-				$('#results').append('<div class="col-md-4"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+img_url+'"></a><p>album title: '+album_name+'</p><p>artist name: '+artist_name+'</p></div>');
+				album_img = json.albums.items[x].images[0].url;
+				$('#results').append('<div class="col-md-4"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a><p>album title: '+album_name+'</p><p>artist name: '+artist_name+'</p></div>');
 				$('img.artistImage').attr('src', img_url);
 				$('a.albumLink').attr('href', 'https://open.spotify.com/artist/'+id+'');
 			}
