@@ -45,6 +45,12 @@ var getResults = function() {
 		} // ends artists loop
 
 		$('img.artistImage').attr('src', img_url);
+		document.getElementsByClassName('intro')[0].style.display = "none";
+	//$('div.intro').hide();
+
+	document.getElementsByClassName('main')[0].style.display = "block";
+	//$('div.main').show();
+
 		$queryBox.value = "";
 	}
 
@@ -56,12 +62,7 @@ var getResults = function() {
 	$query = $queryBox.value;
 	//$query = $queryBox.val();
 
-	document.getElementsByClassName('intro')[0].style.display = "none";
-	//$('div.intro').hide();
-
-	document.getElementsByClassName('main')[0].style.display = "block";
-	//$('div.main').show();
-
+	
 	// this is commented out because I'll plan on using it later to hide and show a side panel for playlists
 	//document.getElementsByClassName('left')[0].style.display = "block";
 	//$('div.left').show();
