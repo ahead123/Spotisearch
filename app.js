@@ -86,7 +86,7 @@ var getResults = function() {
 $('#submitSearch').click(getResults); 
 
 // also fires getResults function on the enter keypress event
-$('input#queryBox').keypress(function (e) {
+$('input#queryBox').on('keypress', function (e) {
     if (e.which == 13) {
       getResults();
     }
