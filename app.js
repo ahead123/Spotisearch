@@ -82,16 +82,12 @@ var getResults = function() {
 
 } // ends getResults funciton
 
-
-
-
-
-document.getElementById('submitSearch').addEventListener('click', getResults);
-//$('#submitSearch').on('click', getResults); 
+//document.getElementById('submitSearch').addEventListener('click', getResults);
+$('#submitSearch').click(getResults); 
 
 // also fires getResults function on the enter keypress event
 $('input#queryBox').keypress(function (e) {
-    if (e.which === 13) {
+    if (e.which == 13) {
       getResults();
     }
  });
