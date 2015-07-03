@@ -73,7 +73,27 @@
 			<a class="albumLink" href=""><img class="artistImage center-block"/></a>
 		</div>
 		</div>
-		<div id="results"></div>
+		<div id="results">
+
+			<script id="results-template" type="text/x-handlebars-template">
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<p class="panel-title pull-left">{{album_name}}</p>
+							<a href="https://play.spotify.com/album/{{album_id}}"><p class="text-right tracklist">"Open in Spotify"</p></a>
+						</div>
+						<div class="panel-body">
+							<a href="https://play.spotify.com/album/{{album_id}}"><img class="thumbnail center-block img-responsive" src="{{album_img}}"></a>
+						</div>
+						<div class="panel-footer">
+							<p class="pull-left">{{artist_name}}</p>
+							<a class="favTrigger" href="#" onclick="pushFav()"><p class="text-right">Add to Favorites (coming soon)</p></a>
+						</div>
+					</div>
+				</div>
+			</script>
+
+		</div>
 	</div>
 </div>
 
@@ -90,6 +110,7 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.js"></script>
 <script src="app.js"></script>
 
 </html>
