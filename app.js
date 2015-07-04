@@ -18,7 +18,7 @@ var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
 
 var userLogin = function() {
 
-	$.getJSON(loginUrl+"client_id="+client_id+"&redirect_uri="+redirect_uri+"&response_type=token",function(data){
+	$.getJSON('"'loginUrl+"client_id="+client_id+"&redirect_uri="+redirect_uri+"&scope=user-read-private&response_type=token&state=123"'"',function(data){
 		console.log(data);
 	});
 }
