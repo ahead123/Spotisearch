@@ -50,7 +50,7 @@ if(window.location.href.indexOf('access_token') !== -1){
             	document.getElementById('login').innerHTML = " "+"Logged in as "+data.display_name;
             	console.log(data.images[0].url);
             	$('#userPic').attr({
-            		src: '"'+data.images[0].url+'"'
+            		src: data.images[0].url
             	});
             	$('#userPic').show();
             }
