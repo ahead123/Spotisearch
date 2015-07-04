@@ -47,10 +47,11 @@ if(window.location.href.indexOf('access_token') !== -1){
             },
             success: function(data){
             	console.log(data);
-            	for(var i = 0; i < data.length; i++) {
-            		display_name = data[i].display_name;
+            	console.log(data.display_name);
+            	for(var i = 0; i < data.display_name.length; i++) {
+            		display_name = data.display_name[i];
+            		document.getElementById('login').innerHTML = " "+"Logged in as "+display_name;
             	}
-            	document.getElementById('login').innerHTML = " "+"Logged in as "+display_name;
             }
 		});
 	}
