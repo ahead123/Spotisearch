@@ -19,7 +19,7 @@ var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
 
 var userLogin = function() {
 
-	var scope = 'user-read-private user-read-email';
+	var scope = 'user-read-private user-read-email playlist-read-private playlist-read-collaborative';
     var state = '123';
 
 	loginUrl = 'https://accounts.spotify.com/authorize';
