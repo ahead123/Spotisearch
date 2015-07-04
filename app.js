@@ -47,7 +47,12 @@ if(window.location.href.indexOf('access_token') !== -1){
             success: function(data){
             	console.log(data);
             	console.log(data.display_name);        
-            	document.getElementById('login').innerHTML = " "+"Logged in as "+data.display_name;
+            	$('#login').html(" "+"Logged in as "+data.display_name).css({
+            		'backgroundColor' :'#84bd00',
+            		'padding' : '10px 20px',
+            		'color' : '#ecf0f1',
+            		'border-radius' : '20px'
+            	});
             	console.log(data.images[0].url);
             	$('#userPic').attr({
             		src: data.images[0].url

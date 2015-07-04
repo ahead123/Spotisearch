@@ -35,6 +35,13 @@ form.navbar-form > a:hover {
 	border-radius: 50%;
 }
 
+#login {
+	padding: 10px 20px;
+	background: #84bd00;
+	border-radius: 20px;
+	color: #ecf0f1;
+}
+
 div.collapse > ul.nav > li > a {
 	color: #84bd00;
 }
