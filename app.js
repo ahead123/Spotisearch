@@ -12,7 +12,16 @@ var album_url;
 var album_img;
 var cache = {};
 var baseUrl = "https://api.spotify.com";
+var loginUrl = "https://accounts.spotify.com/authorize?";
+var client_id = "28c0d2a90c924223a48b18dc0801c512";
+var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
 
+var userLogin = function() {
+
+	$.getJSON(loginUrl+"client_id="+client_id+"&redirect_uri="+redirect_uri+"&response_type=token",function(data){
+		console.log(data);
+	});
+}
 
 
 // allow users to search for songs, artist, categories on spotify
@@ -91,6 +100,9 @@ $('input#queryBox').on('keypress', function (e) {
       getResults();
     }
  });
+
+$('#login').click(userLogin);
+
 
 }); // ends document.ready()
 
