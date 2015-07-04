@@ -48,6 +48,9 @@ if(window.location.href.indexOf('access_token') !== -1){
             	console.log(data);
             	console.log(data.display_name);        
             	document.getElementById('login').innerHTML = " "+"Logged in as "+data.display_name;
+            	console.log(data.images.url);
+            	$('#userPic').attr("src", data.images.url);
+            	$('#userPic').show();
             }
 		});
 	}

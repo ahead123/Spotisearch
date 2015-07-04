@@ -29,6 +29,12 @@ form.navbar-form > a:hover {
 	color: #fff;
 }
 
+#userPic {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+}
+
 div.collapse > ul.nav > li > a {
 	color: #84bd00;
 }
