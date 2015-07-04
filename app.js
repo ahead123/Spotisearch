@@ -12,6 +12,7 @@ var album_url;
 var album_img;
 var cache = {};
 var loginUrl;
+var access_token;
 var baseUrl = "https://api.spotify.com";
 var client_id = "28c0d2a90c924223a48b18dc0801c512";
 var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
@@ -19,16 +20,35 @@ var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
 var userLogin = function() {
 
 	var scope = 'user-read-private user-read-email';
-    var state = '123'
+    var state = '123';
 
 	loginUrl = 'https://accounts.spotify.com/authorize';
 	loginUrl += '?response_type=token';
 	loginUrl += '&client_id=' + encodeURIComponent(client_id);
 	loginUrl += '&scope=' + encodeURIComponent(scope);
 	loginUrl += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+	loginUrl += '&show_dialog=true';
 	loginUrl += '&state=' + encodeURIComponent(state);
 
 	window.location = loginUrl;
+}
+
+if(window.location.href.indexOf('access_token') !== -1){
+	var hrefArray = window.location.href.split('=');
+	var hrefString = hrefArray[1].toString();
+	hrefString = hrefString.substring(0, hrefString.length - 11);
+	access_token = hrefString;
+	if(access_token){
+		$.ajax({
+			url: 'https://api.spotify.com/v1/me',
+            headers: {
+              'Authorization': 'Bearer ' + access_token
+            },
+            success: function(data){
+            	console.log(data);
+            }
+		});
+	}
 }
 
 
