@@ -53,6 +53,9 @@ if(window.location.href.indexOf('access_token') !== -1){
             		src: data.images[0].url
             	});
             	$('#userPic').show();
+            	$('#userProfile').attr({
+            		href: data.external_urls[0].spotify
+            	});
             }
 		});
 	}
