@@ -11,16 +11,24 @@ var album_id;
 var album_url;
 var album_img;
 var cache = {};
+var loginUrl;
 var baseUrl = "https://api.spotify.com";
-var loginUrl = "https://accounts.spotify.com/authorize?";
 var client_id = "28c0d2a90c924223a48b18dc0801c512";
 var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
 
 var userLogin = function() {
 
-	$.getJSON(loginUrl+"client_id="+client_id+"&redirect_uri="+redirect_uri+"&response_type=token&state=123",function(data){
-		console.log(data);
-	});
+	var scope = 'user-read-private user-read-email';
+    var state = '123'
+
+	loginUrl = 'https://accounts.spotify.com/authorize';
+	loginUrl += '?response_type=token';
+	loginUrl += '&client_id=' + encodeURIComponent(client_id);
+	loginUrl += '&scope=' + encodeURIComponent(scope);
+	loginUrl += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+	loginUrl += '&state=' + encodeURIComponent(state);
+
+	window.location = loginUrl;
 }
 
 
