@@ -12,7 +12,6 @@ var album_url;
 var album_img;
 var cache = {};
 var loginUrl;
-var display_name;
 var access_token;
 var baseUrl = "https://api.spotify.com";
 var client_id = "28c0d2a90c924223a48b18dc0801c512";
@@ -47,11 +46,8 @@ if(window.location.href.indexOf('access_token') !== -1){
             },
             success: function(data){
             	console.log(data);
-            	console.log(data.display_name);
-            	for(var i = 0; i < data.display_name.length; i++) {
-            		display_name = data.display_name[i];
-            		document.getElementById('login').innerHTML = " "+"Logged in as "+display_name;
-            	}
+            	console.log(data.display_name);        
+            	document.getElementById('login').innerHTML = " "+"Logged in as "+data.display_name;
             }
 		});
 	}
