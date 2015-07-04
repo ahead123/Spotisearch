@@ -46,6 +46,7 @@ if(window.location.href.indexOf('access_token') !== -1){
             },
             success: function(data){
             	console.log(data);
+            	document.getElementById('login').innerHTML = " "+"Logged in as "data.display_name;
             }
 		});
 	}
