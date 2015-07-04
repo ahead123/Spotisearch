@@ -51,7 +51,8 @@ if(window.location.href.indexOf('access_token') !== -1){
             		'backgroundColor' :'#84bd00',
             		'padding' : '10px 20px',
             		'color' : '#ecf0f1',
-            		'border-radius' : '20px'
+            		'border-radius' : '20px',
+            		'margin-top' : '5px'
             	});
             	console.log(data.images[0].url);
             	$('#userPic').attr({
