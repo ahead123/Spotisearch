@@ -33,9 +33,13 @@ var userLogin = function() {
 	window.location = loginUrl;
 }
 
+// checks to see if access_token is in url
 if(window.location.href.indexOf('access_token') !== -1){
+	// splits url into an array
 	var hrefArray = window.location.href.split('=');
+	// converts the access token to a string
 	var hrefString = hrefArray[1].toString();
+	// gets rid of everything after the access_token
 	hrefString = hrefString.substring(0, hrefString.length - 11);
 	access_token = hrefString;
 	if(access_token){
@@ -45,8 +49,8 @@ if(window.location.href.indexOf('access_token') !== -1){
               'Authorization': 'Bearer ' + access_token
             },
             success: function(data){
-            	console.log(data);
-            	console.log(data.display_name);        
+            	// console.log(data);
+            	// console.log(data.display_name);        
             	$('#login').html(" "+"Logged in as "+data.display_name).css({
             		'backgroundColor' :'#84bd00',
             		'padding' : '10px 20px',
@@ -54,7 +58,7 @@ if(window.location.href.indexOf('access_token') !== -1){
             		'border-radius' : '20px',
             		'margin-top' : '5px'
             	});
-            	console.log(data.images[0].url);
+            	// console.log(data.images[0].url);
             	$('#userPic').attr({
             		src: data.images[0].url
             	});
