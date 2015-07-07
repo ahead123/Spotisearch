@@ -60,7 +60,7 @@ div.jumbotron {
 	padding: 70px;
 }
 
-div.main, div.left {
+div.main {
 	display: none;
 	height: 100%;
 	background: #424242;
@@ -69,6 +69,15 @@ div.main, div.left {
 div.main {
 	margin-top: -40px;
 	padding-top: 40px;
+}
+
+div.left {
+	height: 100%;
+	background: #efefef;
+	position: fixed;
+	right: 0;
+	top: 0;
+	display: none;
 }
 
 i.fa.fa-search-plus, i.fa.fa-sort-alpha-asc, i.fa.fa-plus {

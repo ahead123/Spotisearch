@@ -18,10 +18,12 @@ var client_id = "28c0d2a90c924223a48b18dc0801c512";
 var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
 
 var userLogin = function() {
-
+	// some of the many scopes provided by the spotify api
 	var scope = 'user-read-private user-read-email playlist-read-private playlist-read-collaborative';
+    // an optional verification to send to the Spotify server. 
+    // gets returned as a query parameter in the response
     var state = '123';
-
+    // build the request url
 	loginUrl = 'https://accounts.spotify.com/authorize';
 	loginUrl += '?response_type=token';
 	loginUrl += '&client_id=' + encodeURIComponent(client_id);
@@ -30,6 +32,7 @@ var userLogin = function() {
 	loginUrl += '&show_dialog=true';
 	loginUrl += '&state=' + encodeURIComponent(state);
 
+	// redirect to the spotify authentication url
 	window.location = loginUrl;
 }
 
@@ -59,10 +62,12 @@ if(window.location.href.indexOf('access_token') !== -1){
             		'margin-top' : '5px'
             	});
             	// console.log(data.images[0].url);
+            	// set the attribute of the user image when the data returns
             	$('#userPic').attr({
             		src: data.images[0].url
             	});
             	$('#userPic').show();
+            	// set the username attribute with the text from the returned data
             	$('#userProfile').attr({
             		href: data.external_urls.spotify
             	});
@@ -94,7 +99,7 @@ var getResults = function() {
 
 				//display the search results on the page
 				//$('#results').append('<div class="col-md-4"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a><p>album title: '+album_name+'</p><p>artist name: '+artist_name+'</p></div>');
-				$('#results').append('<div class="col-md-4"><div class="panel panel-default"><div class="panel-heading"><p class="panel-title pull-left">'+album_name+'</p><a href="https://play.spotify.com/album/'+album_id+'"><p class="text-right tracklist">Open in Spotify</p></a></div><div class="panel-body"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a></div><div class="panel-footer"><p class="pull-left">'+artist_name+'</p><a class="favTrigger" href="#" onclick="pushFav()"><p class="text-right">Add to Favorites (coming soon)</p></a></div></div></div>');
+				$('#results').append('<div class="col-md-4" style="max-height: 300px; margin-bottom: 75px;"><div class="panel panel-default"><div class="panel-heading"><p class="panel-title pull-left">'+album_name+'</p><a href="https://play.spotify.com/album/'+album_id+'"><p class="text-right tracklist">Open in Spotify</p></a></div><div class="panel-body"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a></div><div class="panel-footer"><p class="pull-left">'+artist_name+'</p><a class="favTrigger" href="#" onclick="pushFav()"><p class="text-right">Add to Favorites (coming soon)</p></a></div></div></div>');
 				$('a.albumLink').attr('href', 'https://open.spotify.com/artist/'+id+'');
 
 			} // ends album loop
