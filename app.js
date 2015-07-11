@@ -81,7 +81,7 @@ if(window.location.href.indexOf('access_token') !== -1){
 var getResults = function() {
 
 	var render = function(json) {
-
+		console.log(json)
 		document.getElementById('results').innerHTML = "";
 		//$('#results').html("");
 
@@ -104,8 +104,24 @@ var getResults = function() {
 
 			} // ends album loop
 
+			for (var n = 0; n < json.tracks.items.length; n++) {
+				track_name = json.tracks.items[i].name;
+				track_url = json.tracks.items[i].href;
+				track_id = json.tracks.items[i].id;
+				
+			};
+			console.log(track_name)
+			//$('div.left').append('<ul style="margin-top: 50px; width: 200px;"><li>'+track_name+ '- ' +'<a href="'+track_url+'">'+track_url+'</a> - '+track_id+'</li></ul>');
 		} // ends artists loop
 
+		// $('div.left').css({
+		// 	'right' : '0px',
+		// 	'top' : '0px',
+		// 	'position' : 'absolute',
+		// 	'background' : '#eee',
+		// 	'display' : 'block',
+		// 	'min-height' : '100%'
+		// });
 		$('img.artistImage').attr('src', img_url);
 		document.getElementsByClassName('intro')[0].style.display = "none";
 	//$('div.intro').hide();
@@ -148,8 +164,10 @@ var getResults = function() {
 $('#submitSearch').click(getResults); 
 
 // also fires getResults function on the enter keypress event
-$('input#queryBox').on('keypress', function (e) {
-    if (e.which == 13) {
+$(document).on('keypress', function(e){
+    if(e.keyCode === 13) {
+   	  e.preventDefault();
+      e.stopPropagation();
       getResults();
     }
  });

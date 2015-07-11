@@ -72,11 +72,6 @@ div.main {
 }
 
 div.left {
-	height: 100%;
-	background: #efefef;
-	position: fixed;
-	right: 0;
-	top: 0;
 	display: none;
 }
 
