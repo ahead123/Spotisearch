@@ -16,6 +16,12 @@ var access_token;
 var baseUrl = "https://api.spotify.com";
 var client_id = "28c0d2a90c924223a48b18dc0801c512";
 var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
+//create an array to hold all the favorites
+var favSongs = {
+	'artist' : '',
+	'albumName' : '',
+	'albumLink' : ''
+};
 
 var userLogin = function() {
 	// some of the many scopes provided by the spotify api
@@ -101,7 +107,7 @@ var getResults = function() {
 
 				//display the search results on the page
 				//$('#results').append('<div class="col-md-4"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a><p>album title: '+album_name+'</p><p>artist name: '+artist_name+'</p></div>');
-				$('#results').append('<div class="col-md-4" style="max-height: 300px; margin-bottom: 75px;"><div class="panel panel-default"><div class="panel-heading"><p class="panel-title pull-left">'+album_name+'</p><a href="https://play.spotify.com/album/'+album_id+'"><p class="text-right tracklist">Open in Spotify</p></a></div><div class="panel-body"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a></div><div class="panel-footer"><p class="pull-left">'+artist_name+'</p><a class="favTrigger" href="#" onclick="pushFav()"><p class="text-right">Add to Favorites (coming soon)</p></a></div></div></div>');
+				$('#results').append('<div class="col-md-4" style="max-height: 300px; margin-bottom: 75px;"><div class="panel panel-default"><div class="panel-heading"><p class="panel-title pull-left">'+album_name+'</p><a href="https://play.spotify.com/album/'+album_id+'"><p class="text-right tracklist">Open in Spotify</p></a></div><div class="panel-body"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a></div><div class="panel-footer"><p class="pull-left">'+artist_name+'</p><a class="favTrigger" href="#" name="'+album_name+'" id="'+album_id+'"><p class="text-right">Add to Favorites</p></a></div></div></div>');
 				$('a.albumLink').attr('href', 'https://open.spotify.com/artist/'+id+'');
 
 			} // ends album loop
@@ -127,8 +133,7 @@ var getResults = function() {
 	//$('div.main').show();
 
 		$queryBox.value = "";
-	}
-
+	}	
 	
 
 	$queryBox = document.getElementById('queryBox');
@@ -152,6 +157,28 @@ var getResults = function() {
 	}); // ends JSON call	
 
 } // ends getResults funciton
+
+//capture the id and album name and push to favSongArray
+$(document).on('click', 'a.favTrigger', function(){
+
+   var favAlbumId = $(this).attr('id');
+   //console.log(favAlbumId);
+
+   var favAlbumName = $(this).parent('div').parent('div').find('p.panel-title').text();
+   //console.log(favAlbumName);
+
+   var favArtistName = $(this).parent('div').find('p.pull-left').text();
+   //console.log(favArtistName);
+
+   favSongs["albumLink"] = 'https://play.spotify.com/album/'+favAlbumId;
+   favSongs["artist"] = favArtistName;
+   favSongs["albumName"] = favAlbumName;
+   
+   $('div.modal-body').append("<h4 id='favList'>"+favSongs.artist+"</h4><p><a href="+favSongs.albumLink+">"+favSongs.albumName+"</a></p>");
+  
+   console.log(favSongs);
+});
+
 
 //document.getElementById('submitSearch').addEventListener('click', getResults);
 $('#submitSearch').click(getResults); 

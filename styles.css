@@ -68,6 +68,12 @@ div.modal-body {
 
 div.modal-body > p {
 	color: #ecf0f1;
+	font-size: 16px;
+}
+
+div.modal-body > p > a {
+	color: #84bd00;
+	text-decoration: none;
 }
 
 div.jumbotron {
