@@ -118,10 +118,7 @@ var getResults = function() {
 				track_id = json.tracks.items[i].id;
 				
 			};
-			
-			 //code that was going to be a left side playlist
-			//$('div.left').append('<ul style="margin-top: 50px; width: 200px;"><li>'+track_name+ '- ' +'<a href="'+track_url+'">'+track_url+'</a> - '+track_id+'</li></ul>');
-		
+					
 		} // ends artists loop
 
 		
@@ -179,11 +176,11 @@ $(document).on('click', 'a.favTrigger', function(e){
    
    $('div.modal-body').append("<div><i class='glyphicon glyphicon-remove pull-right'></i><h4 id='favList'>"+favSongs.artist+"</h4><p><a href="+favSongs.albumLink+">"+favSongs.albumName+"</a></p></div>");
   
-   console.log(favSongs);
    $(this).tooltip('show')
 
 });
 
+//removes songs from favorite list
 $(document).on('click', '.glyphicon-remove', function(){
 	$(this).parent('div').remove();
 });
