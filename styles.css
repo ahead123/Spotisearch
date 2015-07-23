@@ -58,6 +58,8 @@ div.collapse > ul.nav > li > a:hover {
 div.modal-header, div.modal-footer {
 	background-color: #2b2b2b;
 	color: #84bd00;
+	border-bottom: none;
+	border-top: none;
 }
 
 div.modal-body {
