@@ -107,7 +107,7 @@ var getResults = function() {
 
 				//display the search results on the page
 				//$('#results').append('<div class="col-md-4"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a><p>album title: '+album_name+'</p><p>artist name: '+artist_name+'</p></div>');
-				$('#results').append('<div class="col-md-4" style="max-height: 300px; margin-bottom: 75px;"><div class="panel panel-default"><div class="panel-heading"><p class="panel-title pull-left">'+album_name+'</p><a href="https://play.spotify.com/album/'+album_id+'"><p class="text-right tracklist">Open in Spotify</p></a></div><div class="panel-body"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a></div><div class="panel-footer"><p class="pull-left">'+artist_name+'</p><a class="favTrigger" href="#" name="'+album_name+'" id="'+album_id+'"><p class="text-right">Add to Favorites</p></a></div></div></div>');
+				$('#results').append('<div class="col-md-4 listings" style="max-height: 300px; margin-bottom: 75px;"><div class="panel panel-default"><div class="panel-heading"><p class="panel-title pull-left">'+album_name+'</p><a href="https://play.spotify.com/album/'+album_id+'"><p class="text-right tracklist">Open in Spotify</p></a></div><div class="panel-body"><a href="https://play.spotify.com/album/'+album_id+'"><img class="thumbnail center-block img-responsive" src="'+album_img+'"></a></div><div class="panel-footer"><p class="pull-left">'+artist_name+'</p><a class="favTrigger" href="#" data-toggle="tooltip" title="Added to Favorites!" name="'+album_name+'" id="'+album_id+'"><p class="text-right">Add to Favorites</p></a></div></div></div>');
 				$('a.albumLink').attr('href', 'https://open.spotify.com/artist/'+id+'');
 
 			} // ends album loop
@@ -159,7 +159,10 @@ var getResults = function() {
 } // ends getResults funciton
 
 //capture the id and album name and push to favSongArray
-$(document).on('click', 'a.favTrigger', function(){
+$(document).on('click', 'a.favTrigger', function(e){
+
+	 e.stopPropagation();
+	 e.preventDefault();
 
    var favAlbumId = $(this).attr('id');
    //console.log(favAlbumId);
@@ -174,9 +177,15 @@ $(document).on('click', 'a.favTrigger', function(){
    favSongs["artist"] = favArtistName;
    favSongs["albumName"] = favAlbumName;
    
-   $('div.modal-body').append("<h4 id='favList'>"+favSongs.artist+"</h4><p><a href="+favSongs.albumLink+">"+favSongs.albumName+"</a></p>");
+   $('div.modal-body').append("<div><i class='glyphicon glyphicon-remove pull-right'></i><h4 id='favList'>"+favSongs.artist+"</h4><p><a href="+favSongs.albumLink+">"+favSongs.albumName+"</a></p></div>");
   
    console.log(favSongs);
+   $(this).tooltip('show')
+
+});
+
+$(document).on('click', '.glyphicon-remove', function(){
+	$(this).parent('div').remove();
 });
 
 

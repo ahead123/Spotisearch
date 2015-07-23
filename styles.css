@@ -71,9 +71,15 @@ div.modal-body > p {
 	font-size: 16px;
 }
 
-div.modal-body > p > a {
+div.modal-body > div > p > a {
 	color: #84bd00;
 	text-decoration: none;
+}
+
+.glyphicon-remove {
+	color: #c0392b!important;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 div.jumbotron {
@@ -106,6 +112,24 @@ i.fa.fa-search-plus, i.fa.fa-sort-alpha-asc, i.fa.fa-plus {
 	background: #2b2b2b;
 	padding: 30px;
 	color: #84bd00;
+}
+
+div.listings p {
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+a.favTrigger {
+	text-decoration: none;
+	cursor: pointer;
+}
+a.favTrigger:visited {
+	color: #84bd00;
+}
+
+a.favTrigger:hover {
+	color: #fff;
 }
 
 h4#resultHeader {
