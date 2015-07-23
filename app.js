@@ -110,18 +110,13 @@ var getResults = function() {
 				track_id = json.tracks.items[i].id;
 				
 			};
-			console.log(track_name)
+			
+			 //code that was going to be a left side playlist
 			//$('div.left').append('<ul style="margin-top: 50px; width: 200px;"><li>'+track_name+ '- ' +'<a href="'+track_url+'">'+track_url+'</a> - '+track_id+'</li></ul>');
+		
 		} // ends artists loop
 
-		// $('div.left').css({
-		// 	'right' : '0px',
-		// 	'top' : '0px',
-		// 	'position' : 'absolute',
-		// 	'background' : '#eee',
-		// 	'display' : 'block',
-		// 	'min-height' : '100%'
-		// });
+		
 		$('img.artistImage').attr('src', img_url);
 		document.getElementsByClassName('intro')[0].style.display = "none";
 	//$('div.intro').hide();
@@ -140,12 +135,8 @@ var getResults = function() {
 	$query = $queryBox.value;
 	//$query = $queryBox.val();
 
-	
-	// this is commented out because I'll plan on using it later to hide and show a side panel for playlists
-	//document.getElementsByClassName('left')[0].style.display = "block";
-	//$('div.left').show();
 
-  // checks to see if search term is in cache. if so - stops api call and pulls data from cache object.
+    // checks to see if search term is in cache. if so - stops api call and pulls data from cache object.
 	if($query in cache) {
 	  console.log('hit cache', $query, cache[$query]);
 	  render(cache[$query]);

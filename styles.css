@@ -36,11 +36,15 @@ form.navbar-form > a:hover {
 	margin-top: -15px;
 }
 
-#login {
+#login, #favs, #closeModal {
 	padding: 10px 20px;
 	background: #84bd00;
 	border-radius: 20px;
 	color: #ecf0f1;
+	outline: none;
+	margin-left: 5px;
+	text-align: center;
+	margin-bottom: 5px;
 }
 
 div.collapse > ul.nav > li > a {
@@ -49,6 +53,19 @@ div.collapse > ul.nav > li > a {
 
 div.collapse > ul.nav > li > a:hover {
 	color: #fff;
+}
+
+div.modal-header, div.modal-footer {
+	background-color: #2b2b2b;
+	color: #84bd00;
+}
+
+div.modal-body {
+	background-color: #141414;
+}
+
+div.modal-body > p {
+	color: #ecf0f1;
 }
 
 div.jumbotron {
