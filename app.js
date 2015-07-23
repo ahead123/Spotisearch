@@ -61,7 +61,7 @@ if(window.location.href.indexOf('access_token') !== -1){
             		'border-radius' : '20px',
             		'margin-top' : '5px'
             	});
-            	$('#username').text(data.display_name + "'s"+"");
+            	$('#username').text(data.display_name + "'s"+" ");
             	$('#favs').css('margin-top', '5px');
             	// console.log(data.images[0].url);
             	// set the attribute of the user image when the data returns
