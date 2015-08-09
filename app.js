@@ -155,7 +155,7 @@ var getResults = function() {
 
 } // ends getResults funciton
 
-//capture the id and album name and push to favSongArray
+//capture the id and album name and push to favSongs object
 $(document).on('click', 'a.favTrigger', function(e){
 
 	 e.stopPropagation();
