@@ -16,7 +16,7 @@ var access_token;
 var baseUrl = "https://api.spotify.com";
 var client_id = "28c0d2a90c924223a48b18dc0801c512";
 var redirect_uri = "http://ahead123.github.io/Spotisearch/#";
-//create an array to hold all the favorites
+//create an object to hold all the favorites
 var favSongs = {
 	'artist' : '',
 	'albumName' : '',
